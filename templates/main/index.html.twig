@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="card">
+		<h3 class="card-header text-center text-bold">Liens auto généré</h3>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12">
+					<h5 class="card-title">Liens :</h5>
+					<p class="text-justify">
+						{% for record in records %}
+							<a class="d-inline-flex p-2 nav-link text-black-50 text-decoration-underline" href="{{ path('app_country', { 'item': record.iso }) }}">{{ record.name }} (+{{ record.phonecode }})</a>
+						{% endfor %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
